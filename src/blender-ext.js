@@ -10,6 +10,6 @@ Backbone.View.extendWithMixin = function() {
 
     argsArray.unshift(baseProperties);
 
-    blended = Blender.blend.apply(null, argsArray);
+    blended = blend.apply(null, argsArray);
     return Backbone.View.extend.call(this, blended);
 };

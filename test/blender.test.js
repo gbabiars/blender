@@ -12,7 +12,7 @@
     });
 
     test('combining two empty objects should return an empty object', function() {
-        result = Blender.blend(mixin, view);
+        result = blend(mixin, view);
 
         ok(result);
     });
@@ -22,7 +22,7 @@
             return 'another';
         };
 
-        result = Blender.blend(mixin, view);
+        result = blend(mixin, view);
 
         equal(result.another(), 'another');
     });
@@ -30,7 +30,7 @@
     test('string on mixin should be added to view', function() {
         mixin.another = 'another';
 
-        result = Blender.blend(mixin, view);
+        result = blend(mixin, view);
 
         equal(result.another, 'another');
     });
@@ -43,7 +43,7 @@
             return 'mixin';
         };
 
-        result = Blender.blend(mixin, view);
+        result = blend(mixin, view);
 
         equal(result.something(), 'view');
     });
@@ -52,7 +52,7 @@
         view.className = 'view-class';
         mixin.className = 'mixin-class';
 
-        result = Blender.blend(mixin, view);
+        result = blend(mixin, view);
 
         equal(result.className, 'mixin-class view-class');
     });
@@ -65,7 +65,7 @@
             'click .tab': 'tabClicked'
         };
 
-        result = Blender.blend(mixin, view);
+        result = blend(mixin, view);
 
         equal(result.events['click .button'], 'buttonClicked');
         equal(result.events['click .tab'], 'tabClicked');
@@ -84,7 +84,7 @@
             }
         };
 
-        result = Blender.blend(mixin2, mixin, view);
+        result = blend(mixin2, mixin, view);
 
         equal(result.first(), 'view');
         equal(result.second(), 'mixin');
@@ -101,7 +101,7 @@
             }
         };
 
-        result = Blender.blend(mixin2, mixin, view);
+        result = blend(mixin2, mixin, view);
 
         equal(result.something(), 'mixin');
     });
@@ -123,7 +123,7 @@
             }
         ];
 
-        result = Blender.blend(mixins, view);
+        result = blend(mixins, view);
 
         equal(result.first(), 'view');
         equal(result.second(), 'mixin1');

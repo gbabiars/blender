@@ -1,4 +1,4 @@
-var Blender = (function () {
+var blend = (function () {
     'use strict';
 
     function combineEvents(viewEvents, mixinEvents) {
@@ -57,8 +57,6 @@ var Blender = (function () {
         return combine(view, mixins);
     }
 
-    return {
-        blend: blend
-    };
+    return blend;
 
 }());
