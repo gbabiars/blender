@@ -19,7 +19,7 @@
     }
 
     function combine(view, mixins) {
-        var mixin = mixins[0];
+        var mixin = mixins.pop();
 
         for(var prop in mixin) {
             if(mixin.hasOwnProperty(prop)) {
@@ -36,21 +36,24 @@
             }
         }
 
-        if(mixins.length <= 1) {
+        if(mixins.length <= 0) {
             return view;
         }
 
-        return combine(view, mixins.slice(1));
+        return combine(view, mixins);
     }
 
     Blender.blend = function() {
-        var view, mixins;
+        var view, mixins, mixinArray;
 
-        view = arguments[0];
-        mixins = Array.prototype.slice.call(arguments, 1);
+        view = {};
+        mixins = Array.prototype.slice.call(arguments, 0);
 
         if(mixins[0] instanceof Array) {
-            mixins = mixins[0];
+            mixinArray = mixins.shift();
+            mixinArray.forEach(function(mixin) {
+                mixins.unshift(mixin);
+            });
         }
 
         return combine(view, mixins);
