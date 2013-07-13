@@ -30,21 +30,31 @@ module.exports = function(grunt) {
         },
 
         concat: {
-            options: {
-                banner: '(function() {\n\n',
-                footer: '\n}());',
-                separator: '\n\n'
-            },
             dist: {
                 src: ['src/blender.js', 'src/blender-ext.js'],
-                dest: 'dist/blender.js'
+                dest: 'dist/blender.js',
+                options: {
+                    banner: '(function() {\n\n',
+                    footer: '\n}());',
+                    separator: '\n\n'
+                }
+            },
+            require: {
+                src: ['src/blender.js', 'src/blender-ext.js'],
+                dest: 'dist/blender-require.js',
+                options: {
+                    banner: 'define([\'backbone\'], function(Backbone) {\n\n',
+                    footer: '\nreturn Backbone.View.extendWithMixin;\n\n});',
+                    separator: '\n\n'
+                }
             }
         },
 
         uglify: {
             dist: {
                 files: {
-                    'dist/blender.min.js': ['dist/blender.js']
+                    'dist/blender.min.js': ['dist/blender.js'],
+                    'dist/blender-require.min.js': ['dist/blender-require.js']
                 }
             }
         }
@@ -56,4 +66,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-karma');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+
+    grunt.registerTask('dist', ['concat:dist', 'concat:require', 'uglify:dist']);
 };
