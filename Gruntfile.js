@@ -27,6 +27,26 @@ module.exports = function(grunt) {
                 configFile: 'karma.conf.js',
                 background: true
             }
+        },
+
+        concat: {
+            options: {
+                banner: '(function() {\n\n',
+                footer: '\n}());',
+                separator: '\n\n'
+            },
+            dist: {
+                src: ['src/blender.js', 'src/blender-ext.js'],
+                dest: 'dist/blender.js'
+            }
+        },
+
+        uglify: {
+            dist: {
+                files: {
+                    'dist/blender.min.js': ['dist/blender.js']
+                }
+            }
         }
 
     });
@@ -34,5 +54,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-karma');
-
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
 };

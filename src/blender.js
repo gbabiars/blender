@@ -1,7 +1,5 @@
-(function () {
+var Blender = (function () {
     'use strict';
-
-    var Blender = window.Blender = {};
 
     function combineEvents(viewEvents, mixinEvents) {
         var result, prop;
@@ -43,7 +41,7 @@
         return combine(view, mixins);
     }
 
-    Blender.blend = function() {
+    function blend() {
         var view, mixins, mixinArray;
 
         view = {};
@@ -57,6 +55,10 @@
         }
 
         return combine(view, mixins);
+    }
+
+    return {
+        blend: blend
     };
 
 }());
