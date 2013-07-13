@@ -1,9 +1,16 @@
 {
   "name": "blender",
   "version": "0.0.1",
-  "devDependencies": {
+  "description": "Provides a way to utilize mixins in Backbone.js views",
+  "keywords": [
+    "backbone",
+    "mixin"
+  ],
+  "main": "dist/blender.js",
+  "license": "MIT",
+  "dependencies": {
     "backbone": "~1.0.0",
     "underscore": "~1.4.4",
-    "jquery": "~2.0.3"
+    "jquery": "~1.10.2"
   }
 }
