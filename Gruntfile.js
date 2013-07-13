@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         concat: {
             dist: {
                 src: ['src/blender.js', 'src/blender-ext.js'],
-                dest: 'dist/blender.js',
+                dest: 'blender.js',
                 options: {
                     banner: '(function() {\n\n',
                     footer: '\n}());',
@@ -41,7 +41,7 @@ module.exports = function(grunt) {
             },
             require: {
                 src: ['src/blender.js', 'src/blender-ext.js'],
-                dest: 'dist/blender-require.js',
+                dest: 'blender-require.js',
                 options: {
                     banner: 'define([\'backbone\'], function(Backbone) {\n\n',
                     footer: '\nreturn Backbone.View.extendWithMixin;\n\n});',
@@ -53,8 +53,8 @@ module.exports = function(grunt) {
         uglify: {
             dist: {
                 files: {
-                    'dist/blender.min.js': ['dist/blender.js'],
-                    'dist/blender-require.min.js': ['dist/blender-require.js']
+                    'blender.min.js': ['blender.js'],
+                    'blender-require.min.js': ['blender-require.js']
                 }
             }
         }

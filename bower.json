@@ -6,7 +6,7 @@
     "backbone",
     "mixin"
   ],
-  "main": "dist/blender.js",
+  "main": "blender.js",
   "license": "MIT",
   "dependencies": {
     "backbone": "~1.0.0",
