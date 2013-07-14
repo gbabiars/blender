@@ -81,5 +81,53 @@ var MyModal = Backbone.View.extend({
 
 We can also pass in more than one mixin.  The priority for the arguments go from least priority to highest priority.  For most properties, the higher priority mixin's property will overwrite the lower priority mixin's property.  className and events are exceptions as they will be combined.
 ```js
+var mixin1 = {
+  className: 'mixin1',
+  
+  getName: function() {
+    return 'mixin1'
+  },
+  
+  first: function() {
+    return 'first';
+  }
+};
 
+var mixin2 = {
+  className: 'mixin2',
+  
+  getName: function() {
+    return 'mixin2'
+  },
+  
+  second: function() {
+    return 'second';
+  }
+};
+  
+var MyView = Backbone.View.extendWithMixin(mixin1, mixin2, {
+  className: 'myView',
+  
+  // more view specific properties
+});
+```
+The resulting view is the equivalent of:
+```js
+var MyView = Backbone.view.extend({
+  className: 'mixin1 mixin2 myView',
+  
+  getName: function() {
+    return 'mixin2';
+  },
+  
+  first: function() {
+    return 'first';
+  },
+  
+  second: function() {
+    return 'second';
+  },
+  
+  // more view specific properties
+})
 ```
