@@ -12,6 +12,12 @@ Or you can install using Bower:
 ```
 bower install blender --save-dev
 ```
+Include the blender.js file after Backbone:
+```html
+<script src="backbone.js"></script>
+<script src="blender.js"></script>
+```
+For require.js users, there is a blender-require.js file that can be used with AMD.
 
 ## How To Use
 
@@ -130,4 +136,11 @@ var MyView = Backbone.view.extend({
   
   // more view specific properties
 })
+```
+
+Alternatively, you can pass the mixins in as an array.  The priorities will be the same, from lowest to highest.
+```js
+var MyView = Backbone.View.extendWithMixin([mixin1, mixin2], {
+  // view specific properties
+});
 ```
