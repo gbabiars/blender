@@ -18,7 +18,6 @@
     ".gitignore",
     "Gruntfile.js",
     "karma.conf.js",
-    "README.md",
     "package.json"
   ]
 }
