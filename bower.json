@@ -1,6 +1,6 @@
 {
   "name": "blender",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Provides a way to utilize mixins in Backbone.js views",
   "keywords": [
     "backbone",
@@ -12,5 +12,13 @@
     "backbone": "~1.0.0",
     "underscore": "~1.4.4",
     "jquery": "~1.10.2"
-  }
+  },
+  "ignore": [
+    ".jshintrc",
+    ".gitignore",
+    "Gruntfile.js",
+    "karma.conf.js",
+    "README.md",
+    "package.json"
+  ]
 }
